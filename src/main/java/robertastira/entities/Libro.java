@@ -35,4 +35,12 @@ public class Libro extends ElementoBibliografico  {
                 ", numeroPagine=" + numeroPagine +
                 '}';
     }
+
+    public void setAutore(String autore) {
+        this.autore = autore;
+    }
+
+    public void setGenere(String genere) {
+        this.genere = genere;
+    }
 }
