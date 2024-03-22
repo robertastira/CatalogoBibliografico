@@ -6,13 +6,13 @@ import javax.swing.text.Element;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="prestiti")
 public class Prestito {
 @ManyToOne
-@JoinColumn(name = "utente-id")
-        protected Utente utente;
+@JoinColumn(name = "utente_id")
+@Id
+        private Utente utente;
 @ManyToOne
-@JoinColumn(name="elementoBibliografico-id")
+@JoinColumn(name="isbn-id")
         protected ElementoBibliografico elementoBibliografico;
 @Column
         protected LocalDate dataPrestito;
@@ -20,6 +20,8 @@ public class Prestito {
         protected LocalDate dataRestituzionePrevista;
 @Column
         protected LocalDate dataRestituzioneEffettiva;
+
+public Prestito(){}
 
     public Prestito(Utente utente, ElementoBibliografico elementoBibliografico, LocalDate dataPrestito,LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva) {
         this.utente = utente;

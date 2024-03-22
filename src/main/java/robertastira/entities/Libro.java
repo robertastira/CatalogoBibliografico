@@ -26,6 +26,8 @@ public class Libro extends ElementoBibliografico  {
 
     }
 
+    public Libro(){}
+
     @Override
     public String toString() {
         return "Libro{" +

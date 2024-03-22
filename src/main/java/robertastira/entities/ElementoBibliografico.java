@@ -3,21 +3,23 @@ package robertastira.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name= "elemento-bibliografico")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-abstract public class ElementoBibliografico {
-    @Id
-    @Column
-    @GeneratedValue
-    @OneToMany(mappedBy = "elementoBibliografico-id")
-    protected long isbn;
+abstract public class ElementoBibliografico { @Id
+@Column
+@GeneratedValue
+protected long isbn;
     @Column
     protected String titolo;
     @Column
     protected int annoPubblicazione;
     @Column
     protected long numeroPagine;
+    @OneToMany(mappedBy = "isbn")
+    private List<ElementoBibliografico> elementoBibliograficoList;
 
     public ElementoBibliografico(long isbn, String titolo, int annoPubblicazione, long numeroPagine) {
         this.isbn = isbn;
@@ -25,6 +27,8 @@ abstract public class ElementoBibliografico {
         this.annoPubblicazione=annoPubblicazione;
         this.numeroPagine=numeroPagine;
     }
+
+    public ElementoBibliografico(){}
 
 
     @Override

@@ -15,6 +15,8 @@ public class Rivista extends ElementoBibliografico{
         this.tipoRivista=tipoRivista;
     }
 
+    public Rivista(){}
+
     public TipoRivista getTipoRivista() {
         return tipoRivista;
     }
