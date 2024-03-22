@@ -1,11 +1,13 @@
 package robertastira.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
 @Entity
 public class Libro extends ElementoBibliografico  {
-
+    @Column
     private String autore;
+    @Column
     private String genere;
 
     public String getAutore() {

@@ -1,8 +1,6 @@
 package robertastira.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import javax.swing.text.Element;
 import java.time.LocalDate;
@@ -10,10 +8,17 @@ import java.time.LocalDate;
 @Entity
 @Table(name="prestiti")
 public class Prestito {
+@ManyToOne
+@JoinColumn(name = "utente-id")
         protected Utente utente;
+@ManyToOne
+@JoinColumn(name="elementoBibliografico-id")
         protected ElementoBibliografico elementoBibliografico;
+@Column
         protected LocalDate dataPrestito;
+@Column
         protected LocalDate dataRestituzionePrevista;
+@Column
         protected LocalDate dataRestituzioneEffettiva;
 
     public Prestito(Utente utente, ElementoBibliografico elementoBibliografico, LocalDate dataPrestito,LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva) {

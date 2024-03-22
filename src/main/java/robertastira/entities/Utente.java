@@ -1,12 +1,23 @@
 package robertastira.entities;
 
-import java.time.LocalDate;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
+import java.time.LocalDate;
+import java.util.List;
+
+@Entity
 public class Utente {
     protected String nome;
     protected String cognome;
     protected LocalDate dataDiNascita;
+    @Id
+    @GeneratedValue
     protected long numeroTessera;
+    @OneToMany(mappedBy = "utente-id")
+    private List<Prestito> prestitoList;
 
     public Utente(String nome, String cognome, LocalDate dataDiNascita, long numeroTessera) {
         this.nome = nome;

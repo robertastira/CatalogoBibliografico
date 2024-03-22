@@ -8,11 +8,15 @@ import jakarta.persistence.*;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 abstract public class ElementoBibliografico {
     @Id
+    @Column
     @GeneratedValue
-    @OneToMany(mappedBy = "elementobibliografico")
+    @OneToMany(mappedBy = "elementoBibliografico-id")
     protected long isbn;
+    @Column
     protected String titolo;
+    @Column
     protected int annoPubblicazione;
+    @Column
     protected long numeroPagine;
 
     public ElementoBibliografico(long isbn, String titolo, int annoPubblicazione, long numeroPagine) {
