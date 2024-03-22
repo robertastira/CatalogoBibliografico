@@ -5,10 +5,15 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class Libro extends ElementoBibliografico  {
+
     @Column
     private String autore;
     @Column
     private String genere;
+
+    public Libro(String signoreDegliAnelli, int i, int i1, String s, String romanzo) {
+        super();
+    }
 
     public String getAutore() {
         return autore;
@@ -17,6 +22,8 @@ public class Libro extends ElementoBibliografico  {
     public String getGenere() {
         return genere;
     }
+    public Libro(){}
+
 
     public Libro(long isbn, String titolo, int annoPubblicazione, long numeroPagine, String autore, String genere) {
         super(isbn, titolo, annoPubblicazione, numeroPagine);
@@ -25,8 +32,6 @@ public class Libro extends ElementoBibliografico  {
 
 
     }
-
-    public Libro(){}
 
     @Override
     public String toString() {
@@ -38,13 +43,5 @@ public class Libro extends ElementoBibliografico  {
                 ", annoPubblicazione=" + annoPubblicazione +
                 ", numeroPagine=" + numeroPagine +
                 '}';
-    }
-
-    public void setAutore(String autore) {
-        this.autore = autore;
-    }
-
-    public void setGenere(String genere) {
-        this.genere = genere;
     }
 }
