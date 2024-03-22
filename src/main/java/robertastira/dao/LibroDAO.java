@@ -1,6 +1,7 @@
 package robertastira.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import robertastira.entities.Libro;
 
 public class LibroDAO {
@@ -35,18 +36,30 @@ public class LibroDAO {
     }
 
     public Libro findByAuthor(String autore) {
-        Libro libro = em.find(Libro.class, autore);
-        return libro;
+        try {
+            return em.createQuery("SELECT l FROM Libro l WHERE l.autore = :autore", Libro.class)
+                    .setParameter("autore", autore)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
+
 
     public Libro findByYear(int annoPubblicazione) {
         Libro libro = em.find(Libro.class, annoPubblicazione);
         return libro;
     }
 
+
     public Libro findByTitle(String titolo) {
-        Libro libro = em.find(Libro.class, titolo);
-        return libro;
+        try {
+            return em.createQuery("SELECT l FROM Libro l WHERE l.titolo = :titolo", Libro.class)
+                    .setParameter("titolo", titolo)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
 }

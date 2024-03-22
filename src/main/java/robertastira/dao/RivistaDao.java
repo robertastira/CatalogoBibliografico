@@ -2,6 +2,7 @@ package robertastira.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import robertastira.entities.Rivista;
 
 public class RivistaDao {
@@ -42,8 +43,13 @@ public class RivistaDao {
     }
 
     public Rivista findByTitle(String titolo) {
-        Rivista rivista = em.find(Rivista.class, titolo);
-        return rivista;
+        try {
+            return em.createQuery("SELECT r FROM Rivista r WHERE r.titolo = :titolo", Rivista.class)
+                    .setParameter("titolo", titolo)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }
 

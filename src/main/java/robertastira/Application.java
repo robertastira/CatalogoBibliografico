@@ -20,7 +20,7 @@ public class Application {
         Libro signoredeglianelli = new Libro("Signore Degli Anelli", 1955, 1364, "John R.R. Tolkien", "Romanzo");
         //Rivista vogue = new Rivista("Vogue", 2000, 25, TipoRivista.SETTIMANALE);
 
-         //ud.save(signoredeglianelli);
+        ud.save(signoredeglianelli);
         //ud.findByIdAndDelete(152);
         // ud.findByIdAndDelete(202);
        //ud.findByIdAndDelete(252);
@@ -30,7 +30,7 @@ public class Application {
 ud.findByYear(1920);
 ud.findByTitle("Titolo");
 
-//non capisco perché mi da null ai libri, mi blocca tutto il resto
+//non capisco perché mi da null ai libri, mi blocca tutto il resto  e più scrivo più mi da errori.
 
     }
 }
