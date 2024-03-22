@@ -1,6 +1,15 @@
 package robertastira.entities;
 
-public class ElementoBibliografico {
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name= "elemento-bibliografico")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+abstract public class ElementoBibliografico {
+    @Id
+    @GeneratedValue
+    @OneToMany(mappedBy = "elementobibliografico")
     protected long isbn;
     protected String titolo;
     protected int annoPubblicazione;
@@ -12,6 +21,7 @@ public class ElementoBibliografico {
         this.annoPubblicazione=annoPubblicazione;
         this.numeroPagine=numeroPagine;
     }
+
 
     @Override
     public String toString() {

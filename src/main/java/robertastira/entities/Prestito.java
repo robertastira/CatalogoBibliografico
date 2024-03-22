@@ -1,8 +1,14 @@
 package robertastira.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
 import javax.swing.text.Element;
 import java.time.LocalDate;
 
+@Entity
+@Table(name="prestiti")
 public class Prestito {
         protected Utente utente;
         protected ElementoBibliografico elementoBibliografico;
@@ -18,6 +24,7 @@ public class Prestito {
         this.dataRestituzioneEffettiva=dataRestituzioneEffettiva;
     }
 
+    @ManyToOne
     public Utente getUtente() {
         return utente;
     }

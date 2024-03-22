@@ -1,6 +1,8 @@
 package robertastira.entities;
 
+import jakarta.persistence.Entity;
 
+@Entity
 public class Libro extends ElementoBibliografico  {
 
     private String autore;
