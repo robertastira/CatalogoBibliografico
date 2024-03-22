@@ -17,6 +17,9 @@ public class Rivista extends ElementoBibliografico{
 
     public Rivista(){}
 
+    public Rivista(String titolo, int dataPubblicazione, int numeroPagine, TipoRivista tipoRivista) {
+    }
+
     public TipoRivista getTipoRivista() {
         return tipoRivista;
     }

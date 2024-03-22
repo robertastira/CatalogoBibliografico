@@ -7,6 +7,7 @@ import robertastira.entities.Rivista;
 public class RivistaDao {
     private EntityManager em;
 
+
     public void RivistaDAO(EntityManager em) {
         this.em = em;
     }

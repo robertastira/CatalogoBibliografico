@@ -11,9 +11,9 @@ public class Libro extends ElementoBibliografico  {
     @Column
     private String genere;
 
-    public Libro(String signoreDegliAnelli, int i, int i1, String s, String romanzo) {
-        super();
+    public Libro(String titolo, int annoPubblicazione, int numeroPagine, String autore, String genere) {
     }
+
 
     public String getAutore() {
         return autore;
@@ -22,7 +22,6 @@ public class Libro extends ElementoBibliografico  {
     public String getGenere() {
         return genere;
     }
-    public Libro(){}
 
 
     public Libro(long isbn, String titolo, int annoPubblicazione, long numeroPagine, String autore, String genere) {
